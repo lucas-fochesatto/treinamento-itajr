@@ -35,6 +35,14 @@
     margin-bottom: 5rem;
 }
 
+.logo h1 {
+    text-shadow: 1px 50px 40px rgb(67, 67, 67);
+}
+
+img {
+    filter: drop-shadow(1px 50px 40px rgb(67, 67, 67));
+}
+
 .login-form {
     width: 100%;
     background-color: rgb(238, 238, 238);
@@ -52,7 +60,7 @@
 .input label {
     font-weight: bold;
     font-size: 0.8rem;
-    color: #D694FF;
+    color: #c269f9;
 }
 
 .input input {
