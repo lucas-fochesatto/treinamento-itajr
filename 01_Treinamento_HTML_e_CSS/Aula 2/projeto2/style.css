@@ -6,12 +6,8 @@
     margin: 0;
 }
 
-.container {
-    display: flex;
-    justify-content: space-around;
-}
-
 .content {
+    width: fit-content;
     padding-top: 2.5rem;
     padding-left: 3rem;
 }
@@ -91,5 +87,9 @@ p.number {
 
 
 .rock {
-    width: 40vw;
+    z-index: -1;
+    width: 760px;
+    position: absolute;
+    top: 0;
+    left: 55vw;
 }
