@@ -6,43 +6,50 @@
     margin: 0;
 }
 
+.container {
+    display: flex;
+    gap: 25vw;
+}
+
 .content {
-    width: fit-content;
+    width: 20vw;
     padding-top: 2.5rem;
-    padding-left: 3rem;
+    padding-left: 4rem;
 }
 
 .text-large {
     font-family: "Zilla Slab";
     font-weight: 600;
-    font-size: 62px;
+    /*font-size: 62px;*/  
+    font-size: 3.6vw;      
     color: #252525;
     padding-bottom: 2rem;
-    border-bottom: 4px solid #333333;
+    border-bottom: 0.2vw solid #333333;
 }
 
 .text-large span {
     font-weight: 700;
     color: #E3B635;
-    
 }
 
 .text-small {
     font-weight: 400;
     font-family: "Inter";
     color: #252525;
-    font-size: 24px;
+    /*font-size: 24px;*/
+    font-size: 1vw;
     padding-top: 2rem;
 }
 
 button {
-    margin-top: 2rem;
+    margin-top: 2.2rem;
     background-color: #E3B635;
     font-family: "Inter";
     font-weight: 500;
-    font-size: 22px;
-    width: 200px;
-    height: 66px;
+    /*font-size: 22px;*/
+    font-size: 1vw;
+    width: 10vw;
+    height: 3.2vw;
     border: 0;
     border-radius: 40px;
     cursor: pointer ;
@@ -53,14 +60,14 @@ button:hover {
 }
 
 .cards {
-    margin-top: 3rem;
+    margin-top: 2.6rem;
     display: flex;
     gap: 1.5rem;
 }
 
 .card img {
-    width: 24px;
-    height: 24px;
+    width: 1.1vw;
+    height: 1.1vw;
 }
 
 .card {
@@ -69,27 +76,28 @@ button:hover {
     row-gap: 10px;
     background-color: #242424;
     border-radius: 18px;
-    padding: 24px 48px;
+    padding: 1vw 2vw;
     color: #FFFFFF;
     font-family: "Inter";
 }
 
-p.text {
-    font-size: 15px;
+.text {
+    width: 5vw;
+    height: 4vw;
+    font-size: 0.8vw;
     font-weight: 300;
 }
 
 p.number {
-    font-size: 22px;
+    font-size: 1vw;
     font-weight: 600;
 }
 
-
-
 .rock {
-    z-index: -1;
-    width: 760px;
-    position: absolute;
-    top: 0;
-    left: 55vw;
+    width: 42vw;
+    padding-top: 0;
+}
+
+.rock img {
+    width: 100%;
 }
