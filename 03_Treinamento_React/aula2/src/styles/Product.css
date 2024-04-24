@@ -1,0 +1,37 @@
+.card {
+    width: 12rem;
+    height: 10rem;
+    background-color: white;
+    padding: 1.5rem 2.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    font-weight: 600;
+    gap: 1rem;
+    cursor: pointer;
+    transition: 0.2s;
+    color: black;
+}
+
+.card:hover {
+    filter: brightness(0.9);
+}
+
+.discount {
+    position: relative;
+    background-color: var(--discount-green);
+}
+
+.value {
+    font-size: 3rem;
+    color: var(--secondary-text);
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.hidden {
+    display: none;
+}
