@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.landing {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-style: italic;
+    color: var(--sugar-pink);
+    font-weight: 600;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.welcome {
+    font-size: 128px;
+}
+
+.craving {
+    font-size: 36px;
+}
+
+.products {
+    width: 100%;
+    display: flex;
+    background-color: var(--sugar-pink);
+    padding: 2rem;
+    padding-left: 4rem;
+    gap: 4rem;
+    overflow-x: auto;
+}
+
+.add-product {
+    display: flex;
+    justify-content: center;
+    background-color: var(--dark-blue);
+    width: 100%;
+    font-family: 'Roboto';
+}
+
+.inputs {
+    display: flex;
+    gap: 2rem;
+    margin-top: 6rem;
+    padding-bottom: 70px;
+}
+
+.input-area {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+label {
+    font-weight: 400;
+    font-size: 12px;
+    color: var(--sugar-pink);
+}
+
+input {
+    border: 0;
+    border-bottom: 2px solid var(--sugar-pink);
+    padding: 0.2rem;
+    padding-left: 0;
+    background-color: transparent;
+    outline: none;
+    color: var(--secondary-text);
+    font-size: 16px;
+}

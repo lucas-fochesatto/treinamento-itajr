@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --dark-blue: hsla(200, 95%, 14%, 1);
+  --sugar-pink: hsla(350, 100%, 73%, 1);
+  --discount-green: #AFC580;
+  --header-bg: hsla(266, 100%, 64%, 1);
+  --secondary-text: hsla(0, 0%, 85%, 1);
+  --soft-blue: hsla(199, 64%, 73%, 1); 
+  font-family: "Raleway";
+}
+
+
+body {
+  width: 100vw;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
