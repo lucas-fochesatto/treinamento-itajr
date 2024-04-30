@@ -53,7 +53,7 @@ export default function Header() {
                     <div className={`quantity ${quantity == 0 && 'hidden'}`}>{quantity > 0 && quantity}</div>
                     <Icon icon='cart' color='orange' size={22} background={cartbg}/>
                 </div>
-                <div onClick={() => {navigator('/add')}} onMouseEnter={changePlusBg} onMouseLeave={changePlusBg} className={`cart ${window.location.href != 'http://127.0.0.1:5173/' ? 'hidden' : ''}`}>
+                <div onClick={() => {navigator('/add')}} onMouseEnter={changePlusBg} onMouseLeave={changePlusBg} className={`cart ${!(window.location.href == 'http://127.0.0.1:5173/' || window.location.href == 'http://localhost:5173/') ? 'hidden' : ''}`}>
                     <Icon icon='plus' color='dark-gray' size={22} background={plusbg}/>
                 </div>
             </div>
