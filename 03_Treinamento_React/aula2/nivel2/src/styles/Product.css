@@ -1,0 +1,85 @@
+.product-container {
+    padding: 20px 30px;
+    background-color: var(--gray);
+    border-radius: 6px 36px 6px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
+}
+
+.image {
+    width: 120px;
+    margin-top: -40px;
+}
+
+.image img {
+    width: 100%;
+}
+
+.category {
+    background-color: var(--off-yellow);
+    color: var(--orange);
+    padding: 4px 8px 4px 8px;
+    border-radius: 100px;
+}
+
+.text {
+    margin-top: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 216px;
+    text-align: center;
+}
+
+.text .name {
+    font-family: 'Baloo 2';
+    font-size: 20px;
+    font-weight: 700;
+
+}
+
+.text .description {
+    font-size: 14px;
+    color: var(--description);
+}
+
+.buy {
+    margin-top: 33px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.price {
+    font-size: 14px;
+    color: var(--dark-gray);
+}
+
+.price span {
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cart-button {
+    height: 38px;
+}
+
+.counter {
+    padding: 4px;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    border-radius: 6px;
+    background-color: var(--darker-gray);
+}

@@ -1,0 +1,32 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 32px 160px 32px 160px;
+}
+
+.header .icon-container {
+    border-radius: 6px;
+}
+
+.options {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.location .icon-container {
+    padding: 0;
+}
+
+.location {
+    display: flex;
+    gap: 4px;
+    padding: 8px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--off-purple);
+    padding-right: 8px;
+    border-radius: 6px;
+    color: hsla(259, 57%, 37%, 1);
+    font-weight: 400;
+}

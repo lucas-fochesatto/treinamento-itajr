@@ -105,5 +105,5 @@ export const coffees = [
             "ESPECIAL",
             "ALCOÓLICO"
         ]
-    },
+    }
 ]

@@ -1,0 +1,15 @@
+svg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-container {
+    padding: 8px;
+    display: inline-block;
+    border-radius: 6px;
+}
+
+.rounded {
+    border-radius: 100%;
+}
