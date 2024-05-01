@@ -1,0 +1,152 @@
+.checkout-container {
+    padding: 80px 160px 80px 160px;
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+.order-info {
+    width: 100%;
+}
+
+.checkout-container h1 {
+    font-family: 'Baloo 2';
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.address {
+    margin-top: 16px;
+    padding: 40px;
+    background-color: var(--gray);
+    border-radius: 6px;
+}
+
+.title {
+    display: flex;
+    gap: 8px;
+}
+
+.title h1 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.title p {
+    font-size: 14px;
+    color: var(--dark-gray);
+}
+
+.address-info {
+    width: 100%;
+    margin-top: 32px;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: 30% 60% calc(10% - 16px);
+    grid-template-areas: 
+        "postal-code . ."
+        "street street street"
+        "number complement complement"
+        "district city state"
+    ;
+    row-gap: 16px;
+    column-gap: 8px;
+}
+
+.postal-code {
+    grid-area: postal-code;
+}
+
+.street {
+    grid-area: street;
+}
+
+.number {
+    grid-area: number;
+}
+
+.complement-container {
+    position: relative;
+    display: inline-grid;
+}
+
+.complement-container span {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    font-style: italic;
+    font-size: 14px;
+    color: hsla(0, 3%, 54%, 1);
+}
+
+.complement {
+    grid-area: complement;
+}
+
+.district {
+    grid-area: district;
+}
+
+.city {
+    grid-area: city;
+}
+
+.state {
+    grid-area: state;
+}
+
+input {
+    padding: 12px;
+    border: 1px solid var(--darker-gray);
+    border-radius: 4px;
+    background-color: var(--input-bg);
+    outline: 0;
+    font-size: 14px;
+    color: var(--dark-gray);
+}
+
+::placeholder {
+    color: hsla(0, 3%, 54%, 1);
+}
+
+.payment {
+    margin-top: 16px;
+    padding: 40px;
+    background-color: var(--gray);
+    border-radius: 6px;
+}
+
+.payment .options {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.option label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--input-bg);
+    padding: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    outline: 0;
+    border: 1px solid var(--darker-gray);
+
+}
+
+.option label.checked {
+    background-color: var(--off-purple);
+    border: 1px solid var(--purple) ;
+}
+
+.buying-coffees {
+    margin-top: 16px;
+    width: 25vw;
+    padding: 40px;
+    background-color: var(--gray);
+    border-radius: 6px 44px 6px 44px;
+}

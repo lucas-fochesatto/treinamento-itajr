@@ -1,0 +1,52 @@
+.checkout-item {
+    display: flex;
+    justify-content: space-between;
+
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+.checkout-item .content {
+    display: flex;
+    gap: 20px;
+    width: 50%;
+}
+
+.checkout-item .content img{
+    width: 64px;
+    height: 64px;
+}
+
+.checkout-item .content .coffee-info{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.coffee-info p {
+    font-size: 16px;
+}
+
+.coffee-info .options {
+    display: flex;
+    gap: 8px;
+}
+
+.remove {
+    background-color: var(--darker-gray);
+    color: var(--dark-gray);
+    font-weight: 400;
+    padding: 8px;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.remove .icon-container {
+    padding: 0;
+}

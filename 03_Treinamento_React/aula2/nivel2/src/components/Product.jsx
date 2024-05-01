@@ -62,7 +62,7 @@ export default function Product({img, categories, name, description, price, item
 
             <div className="buy">
                 <div className="price">
-                    R$ <span>{price}</span>
+                    R$ <span>{price.toFixed(2).replace('.', ',')}</span>
                 </div>
                 <div className="actions">
                     <div className="counter">

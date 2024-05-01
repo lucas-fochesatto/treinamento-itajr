@@ -3,10 +3,12 @@ import logo from '../assets/logo.svg';
 import Icon from './Icon';
 
 import '../styles/Header.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function Header({itemsAdded}) {
-    const [quantity, setQuantity] = useState(0);
+    const navigator = useNavigate();
 
+    const [quantity, setQuantity] = useState(0);
     const [cartbg, setCartbg] = useState('off-yellow');
 
     const changeBackgound = () => {
@@ -32,7 +34,7 @@ export default function Header({itemsAdded}) {
                     <Icon icon='location' color='purple' size={22}/>
                     <span>Porto Alegre, RS</span>
                 </div>
-                <div onClick={() => {console.log(itemsAdded)}} onMouseEnter={changeBackgound} onMouseLeave={changeBackgound} className="cart">
+                <div onClick={() => {navigator('/checkout')}} onMouseEnter={changeBackgound} onMouseLeave={changeBackgound} className="cart">
                     <div className={`quantity ${quantity == 0 && 'hidden'}`}>{quantity > 0 && quantity}</div>
                     <Icon icon='cart' color='orange' size={22} background={cartbg}/>
                 </div>

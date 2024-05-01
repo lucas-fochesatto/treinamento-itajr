@@ -20,9 +20,23 @@
   --dark-purple: hsla(259, 57%, 37%, 1);
   --off-purple: hsla(259, 63%, 94%, 1);
   --gray: rgb(235, 234, 234);
-  --darker-gray: hsla(0, 2%, 90%, 1);
-  --input-bg: hsla(0, 2%, 93%, 1);
+  --darker-gray: rgb(226, 224, 224);
+  --input-bg: rgb(225, 225, 225);
   --description: hsla(0, 3%, 54%, 1);
 
   --checkout-gradient: linear-gradient(90deg, var(--yellow), var(--purple));
+}
+
+p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+h1 {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.hidden {
+  display: none;
 }

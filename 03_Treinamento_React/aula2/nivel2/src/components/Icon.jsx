@@ -7,6 +7,7 @@ import Package from './svg/Package'
 import Plus from './svg/Plus'
 import Location from './svg/Location'
 import Check from './svg/Check'
+import Trash from './svg/Trash'
 
 import '../styles/Icon.css'
 
@@ -52,6 +53,7 @@ export default function Icon({icon, color = 'white', background = 'none', rounde
             {icon === 'plus' && <Plus size={size} color={getColor(color)}/>}
             {icon === 'location' && <Location size={size} color={getColor(color)}/>}
             {icon === 'check' && <Check size={size} color={getColor(color)}/>}
+            {icon === 'trash' && <Trash size={size} color={getColor(color)}/>}
         </div>
     )
 }

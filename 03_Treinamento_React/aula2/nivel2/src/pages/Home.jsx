@@ -8,7 +8,7 @@ export default function Home({coffees, itemsAdded, setItemsAdded}) {
         <div className="home">
             <div className="landing">
                 <div className="info">
-                    <div className="title">
+                    <div>
                         <h1>Encontre o café perfeito para qualquer hora do dia</h1>
                         <p>Com o Coffee Delivery você recebe seu café onde estiver, a qualquer hora</p>
                     </div>
@@ -45,7 +45,7 @@ export default function Home({coffees, itemsAdded, setItemsAdded}) {
                             categories={coffee.categories} 
                             name={coffee.name} 
                             description={coffee.description} 
-                            price={coffee.price.toFixed(2).replace('.', ',')}
+                            price={coffee.price}
                             itemsAdded={itemsAdded}
                             setItemsAdded={setItemsAdded}
                         />
