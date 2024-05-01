@@ -6,10 +6,11 @@ import Minus from './svg/Minus'
 import Package from './svg/Package'
 import Plus from './svg/Plus'
 import Location from './svg/Location'
+import Check from './svg/Check'
 
 import '../styles/Icon.css'
 
-export default function Icon({icon, color = 'white', background = 'none', rounded=false, size = 16}) {
+export default function Icon({icon, color = 'white', background = 'none', rounded=false, size = 16, ...rootDOMAttributes}) {
     
     function getColor(color) {
         switch(color) {
@@ -31,6 +32,8 @@ export default function Icon({icon, color = 'white', background = 'none', rounde
                 return '#ffffff'
             case 'dark-purple':
                 return 'hsla(259, 57%, 37%, 1)'
+            case 'green':
+                return '#198F51'
             case 'none':
                 return 'transparent'
             default:
@@ -39,7 +42,7 @@ export default function Icon({icon, color = 'white', background = 'none', rounde
     }
 
     return(
-        <div style={{backgroundColor: getColor(background)}} className={`icon-container ${rounded ? 'rounded' : ''}`}>
+        <div {...rootDOMAttributes} style={{backgroundColor: getColor(background)}} className={`icon-container ${rounded ? 'rounded' : ''}`}>
             {icon === 'cart' && <Cart size={size} color={getColor(color)}/>}
             {icon === 'clock' && <Clock size={size} color={getColor(color)}/>}
             {icon === 'coffee' && <Coffee size={size} color={getColor(color)}/>}
@@ -48,6 +51,7 @@ export default function Icon({icon, color = 'white', background = 'none', rounde
             {icon === 'package' && <Package size={size} color={getColor(color)}/>}
             {icon === 'plus' && <Plus size={size} color={getColor(color)}/>}
             {icon === 'location' && <Location size={size} color={getColor(color)}/>}
+            {icon === 'check' && <Check size={size} color={getColor(color)}/>}
         </div>
     )
 }

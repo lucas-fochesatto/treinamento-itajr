@@ -54,7 +54,14 @@
     width: 100%;
 }
 
-.coffees {
+.coffees-box {
     padding: 40px 160px 40px 160px;
+}
+
+.coffees {
+    margin-top: 4rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
 }
 

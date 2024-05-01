@@ -30,3 +30,28 @@
     color: hsla(259, 57%, 37%, 1);
     font-weight: 400;
 }
+
+.cart {
+    position: relative;
+    cursor: pointer;
+}
+
+.quantity {
+    position: absolute;
+    right: -8px;
+    top: -8px;
+    font-size: 12px;
+    font-weight: 700;
+    background-color: var(--orange);
+    color: white;
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hidden {
+    display: none;
+}

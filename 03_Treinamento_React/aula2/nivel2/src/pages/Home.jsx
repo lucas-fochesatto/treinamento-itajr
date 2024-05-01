@@ -3,7 +3,7 @@ import landingImage from '../assets/landing.png';
 import Icon from '../components/Icon';
 import Product from '../components/Product';
 
-export default function Home() {
+export default function Home({coffees, itemsAdded, setItemsAdded}) {
     return (
         <div className="home">
             <div className="landing">
@@ -35,9 +35,22 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className="coffees">
+            <div className="coffees-box">
                 <h1>Nossos cafés</h1>
-                <Product />
+                <div className="coffees">
+                    {coffees.map((coffee, index) => (
+                        <Product 
+                            key={index} 
+                            img={coffee.image} 
+                            categories={coffee.categories} 
+                            name={coffee.name} 
+                            description={coffee.description} 
+                            price={coffee.price.toFixed(2).replace('.', ',')}
+                            itemsAdded={itemsAdded}
+                            setItemsAdded={setItemsAdded}
+                        />
+                    ))}
+                </div>
             </div>
         </div>
     )

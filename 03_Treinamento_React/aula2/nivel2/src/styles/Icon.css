@@ -8,6 +8,7 @@ svg {
     padding: 8px;
     display: inline-block;
     border-radius: 6px;
+    transition: 0.5s;
 }
 
 .rounded {
