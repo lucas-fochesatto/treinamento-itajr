@@ -3,7 +3,7 @@ import landingImage from '../assets/landing.png';
 import Icon from '../components/Icon';
 import Product from '../components/Product';
 
-export default function Home({coffees, itemsAdded, setItemsAdded}) {
+export default function Home({coffees}) {
     return (
         <div className="home">
             <div className="landing">
@@ -46,8 +46,6 @@ export default function Home({coffees, itemsAdded, setItemsAdded}) {
                             name={coffee.name} 
                             description={coffee.description} 
                             price={coffee.price}
-                            itemsAdded={itemsAdded}
-                            setItemsAdded={setItemsAdded}
                         />
                     ))}
                 </div>

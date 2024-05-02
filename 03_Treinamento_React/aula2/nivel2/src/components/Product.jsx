@@ -3,8 +3,7 @@ import { useState } from 'react';
 import '../styles/Product.css';
 import Icon from './Icon';
 
-
-export default function Product({img, categories, name, description, price, itemsAdded, setItemsAdded}){
+export default function Product({img, categories, name, description, price}){
     const [quantity, setQuantity] = useState(1);
     const [cartbg, setCartbg] = useState('purple');
     const [icon, setIcon] = useState('cart');
@@ -27,7 +26,10 @@ export default function Product({img, categories, name, description, price, item
             price
         }
 
-        setItemsAdded([...itemsAdded, item]);
+        let tempArray = JSON.parse(localStorage.getItem('itemsAdded')) || [];
+        tempArray.push(item);
+        localStorage.setItem('itemsAdded', JSON.stringify(tempArray));
+        window.dispatchEvent(new Event("storage"));
         setQuantity(1);
 
         setCartbg('green');

@@ -9,7 +9,7 @@ import bankIcon from '../assets/bank.svg';
 import cashIcon from '../assets/cash.svg';
 import CoffeeCheckout from '../components/CoffeeCheckout';
 
-export default function Checkout({itemsAdded}) {
+export default function Checkout() {
     const [paymentMethod, setPaymentMethod] = useState(0);
 
     const [complement, setComplement] = useState('');
@@ -53,8 +53,9 @@ export default function Checkout({itemsAdded}) {
 
     const getTotalValue = () => {
         let tempTotal = 0;        
+        let tempItemsAdded = JSON.parse(localStorage.getItem('itemsAdded')) || [];
 
-        itemsAdded.forEach(item => {
+        tempItemsAdded.forEach(item => {
             tempTotal += item.price * item.quantity;
         });
 
@@ -62,12 +63,14 @@ export default function Checkout({itemsAdded}) {
         setTotal(tempTotal + 3.5);
     }
 
-    const increase = (e) => {
-
-    }
-
     useEffect(() => {
         getTotalValue();
+
+        window.addEventListener('storage', getTotalValue);
+
+        return () => {
+            window.removeEventListener('storage', getTotalValue);
+        };
     }, [])
 
     return (
@@ -178,7 +181,7 @@ export default function Checkout({itemsAdded}) {
                 <h1>Cafés selecionados</h1>
                 <div className="selected-coffees-content">
                     <div className="buying-coffees">
-                        {itemsAdded.length != 0 ? itemsAdded.map((item, index) => (
+                        {JSON.parse(localStorage.getItem('itemsAdded')).length != 0 ? JSON.parse(localStorage.getItem('itemsAdded')).map((item, index) => (
                             <CoffeeCheckout
                                 key={index}
                                 id={index}

@@ -1,11 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from '../assets/logo.svg';
 import Icon from './Icon';
 
 import '../styles/Header.css';
 import { useNavigate } from 'react-router-dom';
 
-export default function Header({itemsAdded}) {
+export default function Header() {
     const navigator = useNavigate();
 
     const [quantity, setQuantity] = useState(0);
@@ -17,12 +17,21 @@ export default function Header({itemsAdded}) {
     }
 
     useEffect(() => {
-        let counter = 0;
-        for(let i = 0; i < itemsAdded.length; i++){
-            counter += itemsAdded[i].quantity;
+        const updateQuantity = () => {
+            let tempItems = JSON.parse(localStorage.getItem('itemsAdded')) || [];
+            let counter = 0;
+            for(let i = 0; i < tempItems.length; i++){
+                counter += tempItems[i].quantity;
+            }
+            setQuantity(counter)
         }
-        setQuantity(counter)
-    }, [itemsAdded.length])
+
+        window.addEventListener('storage', updateQuantity);
+
+        return () => {
+            window.removeEventListener('storage', updateQuantity)
+        }
+    }, [])
 
     return (
         <div className="header">

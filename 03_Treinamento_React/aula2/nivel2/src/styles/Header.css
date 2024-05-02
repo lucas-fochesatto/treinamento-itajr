@@ -15,6 +15,10 @@
     height: 38px;
 }
 
+.logo {
+    cursor: pointer;
+}
+
 .location .icon-container {
     padding: 0;
 }
