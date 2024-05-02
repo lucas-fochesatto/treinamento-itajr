@@ -143,10 +143,39 @@ input {
     border: 1px solid var(--purple) ;
 }
 
-.buying-coffees {
+.selected-coffees-content {
     margin-top: 16px;
     width: 25vw;
     padding: 40px;
     background-color: var(--gray);
     border-radius: 6px 44px 6px 44px;
+}
+
+.buying-coffees:first-child {
+    padding-top: 0;
+}
+
+.money {
+    margin-top: 36px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.money .label {
+    font-size: 14px;
+    color: var(--dark-gray);
+    line-height: 0;
+}
+
+.money .value {
+    font-size: 16px;
+    color: var(--dark-gray);
+    line-height: 0;
+}
+
+.money .total {
+    font-size: 20px;
+    font-weight: 700;
+    color: hsla(12, 7%, 23%, 1);
+    line-height: 0;
 }

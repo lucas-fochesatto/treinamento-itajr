@@ -3,7 +3,7 @@ import Icon from './Icon';
 
 import '../styles/CoffeeCheckout.css';
 
-export default function CoffeeCheckout({img, name, quantity, price}) {
+export default function CoffeeCheckout({img, name, quantity, price, id}) {
     const [thisQuantity, setThisQuantity] = useState(quantity);
 
     const decrease = () => {
@@ -30,7 +30,7 @@ export default function CoffeeCheckout({img, name, quantity, price}) {
                         </div>
                         <div className="remove">
                             <Icon icon='trash' color='purple' size={16}/>
-                            <span>REMOVER</span>
+                            <span>REMOVER {id}</span>
                         </div>
                     </div>
                 </div>

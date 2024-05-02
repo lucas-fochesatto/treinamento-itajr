@@ -1,6 +1,6 @@
 import '../styles/Checkout.css';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import locationIcon from '../assets/location.svg';
 import dollarIcon from '../assets/dollar.svg';
@@ -8,8 +8,6 @@ import creditCardIcon from '../assets/credit-card.svg';
 import bankIcon from '../assets/bank.svg';
 import cashIcon from '../assets/cash.svg';
 import CoffeeCheckout from '../components/CoffeeCheckout';
-
-import img0 from '../db/images/0.png'
 
 export default function Checkout({itemsAdded}) {
     const [paymentMethod, setPaymentMethod] = useState(0);
@@ -21,6 +19,9 @@ export default function Checkout({itemsAdded}) {
     const [district, setDistrict] = useState('');
     const [city, setCity] = useState('');
     const [state, setState] = useState('');
+
+    const [coffeesTotal, setCoffeesTotal] = useState(0);
+    const [total, setTotal] = useState(3.5);
 
     const handleComplementChange = (e) => {
         setComplement(e.target.value);
@@ -49,6 +50,25 @@ export default function Checkout({itemsAdded}) {
     const handleStateChange = (e) => {
         setState(e.target.value);
     }
+
+    const getTotalValue = () => {
+        let tempTotal = 0;        
+
+        itemsAdded.forEach(item => {
+            tempTotal += item.price * item.quantity;
+        });
+
+        setCoffeesTotal(tempTotal);
+        setTotal(tempTotal + 3.5);
+    }
+
+    const increase = (e) => {
+
+    }
+
+    useEffect(() => {
+        getTotalValue();
+    }, [])
 
     return (
         <div className="checkout-container">
@@ -156,9 +176,35 @@ export default function Checkout({itemsAdded}) {
             </div>
             <div className="selected-coffees">
                 <h1>Cafés selecionados</h1>
-                <div className="buying-coffees">
-                    <CoffeeCheckout img={img0} name='Expresso Tradicional' quantity={1} price={9.9} /> 
+                <div className="selected-coffees-content">
+                    <div className="buying-coffees">
+                        {itemsAdded.length != 0 ? itemsAdded.map((item, index) => (
+                            <CoffeeCheckout
+                                key={index}
+                                id={index}
+                                img={item.image}
+                                name={item.name}
+                                quantity={item.quantity}
+                                price={item.price}
+                            />
+                        )) : <span className='total'>Nenhum item foi adicionado</span>}
+                    </div>
+                    <div className="paying">
+                        <div className="money">
+                            <span className='label'>Total de itens</span>
+                            <span className='value'>{coffeesTotal.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</span>
+                        </div>
+                        <div className="money">
+                            <span className='label'>Entrega</span>
+                            <span className='value'>R$ 3,50</span>
+                        </div>
+                        <div className="money">
+                            <span className='total'>Total</span>
+                            <span className='total'>{total.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</span>
+                        </div>
+                    </div>
                 </div>
+                
             </div>
         </div>
     );

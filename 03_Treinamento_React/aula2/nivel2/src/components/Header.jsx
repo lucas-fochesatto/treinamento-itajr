@@ -26,7 +26,7 @@ export default function Header({itemsAdded}) {
 
     return (
         <div className="header">
-            <div className="logo">
+            <div className="logo" onClick={() => {navigator('/')}}>
                 <img src={logo} alt="" />
             </div>
             <div className="options">

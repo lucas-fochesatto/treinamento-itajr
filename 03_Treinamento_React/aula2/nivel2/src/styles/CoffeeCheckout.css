@@ -5,6 +5,10 @@
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
+
+    padding: 24px 0;
+
+    border-bottom: 1px solid rgb(193, 192, 192);
 }
 
 .checkout-item .content {
@@ -33,6 +37,12 @@
     display: flex;
     gap: 8px;
 }
+.checkout-item .price {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--dark-gray);
+}
+
 
 .remove {
     background-color: var(--darker-gray);
