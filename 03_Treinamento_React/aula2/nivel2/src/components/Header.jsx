@@ -10,10 +10,16 @@ export default function Header() {
 
     const [quantity, setQuantity] = useState(0);
     const [cartbg, setCartbg] = useState('off-yellow');
+    const [plusbg, setPlusbg] = useState('off-yellow');
 
-    const changeBackgound = () => {
+    const changeCartBg = () => {
         cartbg === 'off-yellow' && setCartbg('yellow');
         cartbg === 'yellow' && setCartbg('off-yellow');
+    }
+
+    const changePlusBg = () => {
+        plusbg === 'off-yellow' && setPlusbg('yellow');
+        plusbg === 'yellow' && setPlusbg('off-yellow');
     }
 
     useEffect(() => {
@@ -43,12 +49,12 @@ export default function Header() {
                     <Icon icon='location' color='purple' size={22}/>
                     <span>Porto Alegre, RS</span>
                 </div>
-                <div onClick={() => {navigator('/checkout')}} onMouseEnter={changeBackgound} onMouseLeave={changeBackgound} className="cart">
+                <div onClick={() => {navigator('/checkout')}} onMouseEnter={changeCartBg} onMouseLeave={changeCartBg} className="cart">
                     <div className={`quantity ${quantity == 0 && 'hidden'}`}>{quantity > 0 && quantity}</div>
                     <Icon icon='cart' color='orange' size={22} background={cartbg}/>
                 </div>
-                <div  className="add" style={{display: 'none'}}>
-                    <Icon icon='plus' color='dark-gray' size={22} background='off-yellow'/>
+                <div onClick={() => {navigator('/add')}} onMouseEnter={changePlusBg} onMouseLeave={changePlusBg} className={`cart ${window.location.href != 'http://127.0.0.1:5173/' ? 'hidden' : ''}`}>
+                    <Icon icon='plus' color='dark-gray' size={22} background={plusbg}/>
                 </div>
             </div>
         </div>

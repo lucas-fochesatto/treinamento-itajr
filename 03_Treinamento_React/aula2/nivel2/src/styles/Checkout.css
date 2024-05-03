@@ -15,7 +15,7 @@
     font-size: 24px;
 }
 
-.address {
+.form-box {
     margin-top: 16px;
     padding: 40px;
     background-color: var(--gray);
@@ -93,20 +93,6 @@
 
 .state {
     grid-area: state;
-}
-
-input {
-    padding: 12px;
-    border: 1px solid var(--darker-gray);
-    border-radius: 4px;
-    background-color: var(--input-bg);
-    outline: 0;
-    font-size: 14px;
-    color: var(--dark-gray);
-}
-
-::placeholder {
-    color: hsla(0, 3%, 54%, 1);
 }
 
 .payment {

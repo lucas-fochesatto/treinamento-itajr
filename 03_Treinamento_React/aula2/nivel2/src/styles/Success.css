@@ -30,7 +30,7 @@
     overflow-y: hidden;
 }
 
-.order-info {
+.order-info-wrap .order-info {
     display: flex;
     flex-direction: column;
     gap: 32px;
@@ -39,7 +39,7 @@
     border-radius: 6px 36px 6px 36px;
 }
 
-.order-info .item span {
+.order-info-wrap .order-info .item span {
     font-weight: 700;
 }
 

@@ -109,6 +109,8 @@ export default function Checkout() {
             console.log(order);
 
             localStorage.setItem('order', JSON.stringify(order));
+            localStorage.setItem('itemsAdded', JSON.stringify([]));
+            window.dispatchEvent(new Event("storage"));
 
             navigator('/success');
         } else {
@@ -131,7 +133,7 @@ export default function Checkout() {
         <div className="checkout-container">
             <div className="order-info">
                 <h1>Complete seu pedido</h1>
-                <div className="address">
+                <div className="form-box">
                     <div className="title">
                         <div className="location-icon">
                             <img src={locationIcon} alt="" />
