@@ -1,0 +1,52 @@
+.success-page {
+    padding: 80px 160px;
+}
+
+.uhu {
+    display: block;
+    color: var(--orange);
+    font-family: 'Baloo 2';
+    font-size: 32px;
+    font-weight: 800;
+}
+
+.subtitle {
+    display: block;
+    font-size: 20px;
+}
+
+.success-content {
+    margin-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-info-wrap {
+    width: 30vw;
+    border-radius: 6px 36px 6px 36px;
+    background: var(--success-gradient);
+    padding: 1px;
+    overflow-y: hidden;
+}
+
+.order-info {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 40px;
+    background-color: hsla(0, 3%, 98%, 1);
+    border-radius: 6px 36px 6px 36px;
+}
+
+.order-info .item span {
+    font-weight: 700;
+}
+
+.success-img {
+    width: 30vw;
+}
+
+.success-img img {
+    width: 100%;
+}

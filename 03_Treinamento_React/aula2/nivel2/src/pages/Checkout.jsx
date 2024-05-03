@@ -1,6 +1,7 @@
 import '../styles/Checkout.css';
 
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import locationIcon from '../assets/location.svg';
 import dollarIcon from '../assets/dollar.svg';
@@ -10,6 +11,8 @@ import cashIcon from '../assets/cash.svg';
 import CoffeeCheckout from '../components/CoffeeCheckout';
 
 export default function Checkout() {
+    const navigator = useNavigate();
+
     const [paymentMethod, setPaymentMethod] = useState(0);
 
     const [complement, setComplement] = useState('');
@@ -29,6 +32,26 @@ export default function Checkout() {
 
     const handlePostalCodeChange = (e) => {
         setPostalCode(e.target.value);
+
+        if(e.target.value.length == 5) {
+            e.target.value += '-'
+            setPostalCode(e.target.value);
+        }
+
+        if(e.target.value.length == 9){
+            const cep = e.target.value.replace('-', '');
+            fetch(`https://viacep.com.br/ws/${cep}/json/`)
+                .then(response => response.json())
+                .then(data => {
+                    setStreet(data.logradouro);
+                    setDistrict(data.bairro);
+                    setCity(data.localidade);
+                    setState(data.uf);
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+        }
     }
 
     const handleStreetChange = (e) => {
@@ -61,6 +84,37 @@ export default function Checkout() {
 
         setCoffeesTotal(tempTotal);
         setTotal(tempTotal + 3.5);
+    }
+
+    const submitForm = () => {
+        const itemsAdded = JSON.parse(localStorage.getItem('itemsAdded')) || [];
+
+        if(postalCode && street && number && district && city && state && paymentMethod != 0 && itemsAdded.length != 0) {
+            const address = {
+                postalCode,
+                street,
+                number,
+                complement,
+                district,
+                city,
+                state
+            }
+    
+            const order = {
+                itemsAdded,
+                address,
+                paymentMethod
+            }
+    
+            console.log(order);
+
+            localStorage.setItem('order', JSON.stringify(order));
+
+            navigator('/success');
+        } else {
+            console.log("ALGUM CAMPO INCOMPLETO!")
+        }
+
     }
 
     useEffect(() => {
@@ -206,8 +260,10 @@ export default function Checkout() {
                             <span className='total'>{total.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</span>
                         </div>
                     </div>
+                    <div className="confirm-button">
+                        <button onClick={submitForm}>CONFIRMAR PEDIDO</button>
+                    </div>
                 </div>
-                
             </div>
         </div>
     );

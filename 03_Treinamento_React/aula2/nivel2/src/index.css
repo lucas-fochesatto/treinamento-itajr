@@ -24,7 +24,7 @@
   --input-bg: rgb(225, 225, 225);
   --description: hsla(0, 3%, 54%, 1);
 
-  --checkout-gradient: linear-gradient(90deg, var(--yellow), var(--purple));
+  --success-gradient: linear-gradient(to right,var(--yellow), var(--purple));
 }
 
 p {

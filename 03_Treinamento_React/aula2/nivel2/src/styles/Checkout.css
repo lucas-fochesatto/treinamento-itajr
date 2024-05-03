@@ -5,7 +5,7 @@
     gap: 32px;
 }
 
-.order-info {
+.checkout-container .order-info {
     width: 100%;
 }
 
@@ -178,4 +178,18 @@ input {
     font-weight: 700;
     color: hsla(12, 7%, 23%, 1);
     line-height: 0;
+}
+
+.confirm-button button {
+    margin-top: 40px;
+    padding: 16px 8px 16px 8px;
+    width: 100%;
+    background-color: var(--yellow);
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+    outline: 0;
 }
