@@ -1,27 +1,25 @@
-import Product from "../Models/Product.js";
+import {Product} from "../Models/Product.js";
 
-import coffees from "../db/db.js";
+export const getProducts = async (req, res) => {
+    try {
+        const products = await Product.find();
 
-const db = coffees; // depois vai mudar pra fetch no banco de dados
-
-export const getProducts = (req, res) => {
-    const productsArray = [];
-
-    db.forEach((product) => {
-        productsArray.push(new Product(product.id, product.name, product.price, product.description, product.categories, product.img));
-    })
-
-    res.status(200).send(productsArray);
+        res.status(200).send(products);
+    } catch (error) {
+        res.status(500).json({ error: "Erro interno do servidor" });
+    }
 }
 
-export const addProduct = (req, res) => {
-    const { name, price, description, categories, image } = req.body;
-
-    const product = new Product(db.length + 1, name, price, description, categories, image);
-
-    db.push(product);
-
-    console.log(db)
-
-    res.status(201).send(product);
+export const addProduct = async (req, res) => {
+    try {
+        const { name, price, description, categories, img } = req.body;
+    
+        const productData = { name, price, description, categories, img };
+    
+        const newProduct = await Product.create({...productData});
+    
+        res.status(201).send(newProduct);
+    } catch (error) {
+        res.status(500).send(error);
+    }
 }
