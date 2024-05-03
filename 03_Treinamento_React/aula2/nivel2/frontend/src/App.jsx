@@ -1,8 +1,8 @@
 import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
-import Layout from './pages/Layout'
-import Home from './pages/Home'
+import Layout from './pages/Layout.jsx'
+import Home from './pages/Home.jsx'
 import Checkout from './pages/Checkout.jsx'
 
 import {coffees} from './db/db.jsx';
