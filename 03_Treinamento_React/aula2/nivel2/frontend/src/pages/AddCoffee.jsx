@@ -3,11 +3,14 @@ import { useState } from 'react'
 
 import Icon from '../components/Icon'
 
-import img1 from '../assets/add1.png'
-import img2 from '../assets/add2.png'
 import arrowRight from '../assets/arrow-right.svg'
 
-export default function AddCoffee({coffees}) {
+import api from '../utils/api.js'
+
+export default function AddCoffee() {
+    const img1 = api.imagesUrl + 'add1.png';
+    const img2 = api.imagesUrl + 'add2.png';
+
     const [icon, setIcon] = useState('plus');
     const [color, setColor] = useState('gray');
     const [iconBg, setIconBg] = useState('dark-gray');
@@ -42,14 +45,27 @@ export default function AddCoffee({coffees}) {
     const handleSubmit = () => {
         if(image != 0 && coffeeName && state && description && price && tags){
             const newCoffee = {
-                image: image == 1 ? img1 : img2,
+                img: image == 1 ? img1 : img2,
                 name: coffeeName,
                 description,
                 price: Number(price),
                 categories: tags.split(',').map(tag => tag.trim().toUpperCase())
             }
             
-            coffees.push(newCoffee);
+            fetch(api.addProductUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newCoffee)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
 
             setImage(0);
             setCoffeeName('');
@@ -60,9 +76,11 @@ export default function AddCoffee({coffees}) {
 
             setIconBg('green');
             setIcon('check');
+            setColor('white');
             setTimeout(() => {
                 setIconBg('dark-gray');
                 setIcon('plus');
+                setColor('gray');
             }, 1000);
         } else {
             console.log('TA FALTANO');

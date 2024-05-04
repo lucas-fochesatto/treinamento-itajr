@@ -37,6 +37,7 @@ export default function CoffeeCheckout({img, name, quantity, price, id}) {
         let newData = [...itemsAdded]
 
         newData.splice(id, 1);
+
         localStorage.setItem('itemsAdded', JSON.stringify(newData));
 
         window.dispatchEvent(new Event("storage"));

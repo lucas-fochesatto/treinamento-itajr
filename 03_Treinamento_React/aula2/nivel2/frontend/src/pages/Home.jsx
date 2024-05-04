@@ -41,7 +41,7 @@ export default function Home({coffees}) {
                     {coffees.map((coffee, index) => (
                         <Product 
                             key={index} 
-                            img={coffee.image} 
+                            img={coffee.img} 
                             categories={coffee.categories} 
                             name={coffee.name} 
                             description={coffee.description} 

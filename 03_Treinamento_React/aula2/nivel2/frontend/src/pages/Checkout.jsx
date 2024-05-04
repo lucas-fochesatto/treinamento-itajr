@@ -13,6 +13,8 @@ import CoffeeCheckout from '../components/CoffeeCheckout';
 export default function Checkout() {
     const navigator = useNavigate();
 
+    const [itemsAdded, setItemsAdded] = useState([]);
+
     const [paymentMethod, setPaymentMethod] = useState(0);
 
     const [complement, setComplement] = useState('');
@@ -74,21 +76,7 @@ export default function Checkout() {
         setState(e.target.value);
     }
 
-    const getTotalValue = () => {
-        let tempTotal = 0;        
-        let tempItemsAdded = JSON.parse(localStorage.getItem('itemsAdded')) || [];
-
-        tempItemsAdded.forEach(item => {
-            tempTotal += item.price * item.quantity;
-        });
-
-        setCoffeesTotal(tempTotal);
-        setTotal(tempTotal + 3.5);
-    }
-
     const submitForm = () => {
-        const itemsAdded = JSON.parse(localStorage.getItem('itemsAdded')) || [];
-
         if(postalCode && street && number && district && city && state && paymentMethod != 0 && itemsAdded.length != 0) {
             const address = {
                 postalCode,
@@ -119,13 +107,26 @@ export default function Checkout() {
 
     }
 
-    useEffect(() => {
-        getTotalValue();
+    const updateCart  = () => {
+        let tempTotal = 0;        
+        let tempItemsAdded = JSON.parse(localStorage.getItem('itemsAdded')) || [];
 
-        window.addEventListener('storage', getTotalValue);
+        tempItemsAdded.forEach(item => {
+            tempTotal += item.price * item.quantity;
+        });
+
+        setCoffeesTotal(tempTotal);
+        setTotal(tempTotal + 3.5);
+        setItemsAdded(tempItemsAdded);
+    }
+
+    useEffect(() => {
+        updateCart();
+
+        window.addEventListener('storage', updateCart);
 
         return () => {
-            window.removeEventListener('storage', getTotalValue);
+            window.removeEventListener('storage', updateCart);
         };
     }, [])
 
@@ -237,7 +238,7 @@ export default function Checkout() {
                 <h1>Cafés selecionados</h1>
                 <div className="selected-coffees-content">
                     <div className="buying-coffees">
-                        {JSON.parse(localStorage.getItem('itemsAdded')).length != 0 ? JSON.parse(localStorage.getItem('itemsAdded')).map((item, index) => (
+                        {itemsAdded.length != 0 ? itemsAdded.map((item, index) => (
                             <CoffeeCheckout
                                 key={index}
                                 id={index}
